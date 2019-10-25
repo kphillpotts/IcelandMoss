@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="IcelandMoss.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converters="clr-namespace:IcelandMoss.Converters"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    xmlns:viewmodels="clr-namespace:IcelandMoss.ViewModels"
+    BackgroundColor="White"
+    mc:Ignorable="d">
+
+    <ContentPage.BindingContext>
+        <viewmodels:MainViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="ButtonBackgroundColor">#F5F9FA</Color>
+            <Color x:Key="TextColor">#313643</Color>
+
+            <converters:BoolToStringConverter
+                x:Key="FeaturedHeightConverter"
+                FalseString="170"
+                TrueString="240" />
+
+            <Style x:Key="HeaderFontLight" TargetType="Label">
+                <Setter Property="FontFamily" Value="{StaticResource MontserratLight}" />
+                <Setter Property="FontSize" Value="28" />
+                <Setter Property="TextColor" Value="{StaticResource TextColor}" />
+            </Style>
+            <Style x:Key="HeaderFontMedium" TargetType="Label">
+                <Setter Property="FontFamily" Value="{StaticResource MontserratMedium}" />
+                <Setter Property="FontSize" Value="28" />
+                <Setter Property="TextColor" Value="{StaticResource TextColor}" />
+            </Style>
+            <Style x:Key="ButtonStyle" TargetType="ImageButton">
+                <Setter Property="BackgroundColor" Value="{StaticResource ButtonBackgroundColor}" />
+                <Setter Property="CornerRadius" Value="14" />
+            </Style>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <AbsoluteLayout>
+        <ImageButton
+            Padding="10"
+            AbsoluteLayout.LayoutBounds="20,20,48,48"
+            BackgroundColor="White"
+            Source="hamburger_icon" />
+
+        <ImageButton
+            Padding="10"
+            AbsoluteLayout.LayoutBounds="340,20,48,48"
+            Source="basket_icon"
+            Style="{StaticResource ButtonStyle}" />
+
+        <StackLayout AbsoluteLayout.LayoutBounds="20,100,340,100">
+            <Label Style="{StaticResource HeaderFontLight}" Text="Choose your new" />
+            <Label Style="{StaticResource HeaderFontMedium}" Text="green friend" />
+        </StackLayout>
+
+
+        <BoxView
+            AbsoluteLayout.LayoutBounds="20, 200, 300, 48"
+            BackgroundColor="{StaticResource ButtonBackgroundColor}"
+            CornerRadius="10" />
+
+        <ImageButton
+            Padding="14"
+            AbsoluteLayout.LayoutBounds="20,200,48,48"
+            BackgroundColor="Transparent"
+            Source="search_icon"
+            Style="{StaticResource ButtonStyle}" />
+
+        <Entry AbsoluteLayout.LayoutBounds="60, 200, 240, 48" Placeholder="Search" />
+
+        <ImageButton
+            Padding="14"
+            AbsoluteLayout.LayoutBounds="340,200,48,48"
+            Source="settings_icon"
+            Style="{StaticResource ButtonStyle}" />
+
+        <ScrollView AbsoluteLayout.LayoutBounds="20,300, 380, 300">
+
+            <FlexLayout
+                BindableLayout.ItemsSource="{Binding Products}"
+                Direction="Column"
+                HeightRequest="450"
+                HorizontalOptions="Center"
+                Wrap="Wrap">
+
+                <BindableLayout.ItemTemplate>
+
+                    <DataTemplate>
+
+                        <pancake:PancakeView
+                            Margin="10"
+                            BackgroundColor="{Binding HeroColor}"
+                            CornerRadius="20"
+                            HeightRequest="{Binding IsFeatured, Converter={StaticResource FeaturedHeightConverter}"
+                            WidthRequest="160">
+                            <Grid>
+                                <BoxView
+                                    CornerRadius="0,0,20,0"
+                                    HeightRequest="40"
+                                    HorizontalOptions="End"
+                                    Opacity=".5"
+                                    VerticalOptions="Start"
+                                    WidthRequest="40"
+                                    Color="White" />
+
+                                <Label
+                                    FontSize="20"
+                                    HeightRequest="40"
+                                    HorizontalOptions="End"
+                                    HorizontalTextAlignment="Center"
+                                    Text="+"
+                                    TextColor="White"
+                                    VerticalOptions="Start"
+                                    VerticalTextAlignment="Center"
+                                    WidthRequest="40" />
+
+                                <StackLayout Orientation="Vertical" Spacing="0">
+                                    <Label
+                                        Margin="10,10,0,0"
+                                        FontAttributes="Bold"
+                                        FontSize="16"
+                                        Style="{StaticResource HeaderFontMedium}"
+                                        Text="{Binding Name}"
+                                        TextColor="White" />
+
+                                    <StackLayout
+                                        Margin="10,0"
+                                        Padding="0"
+                                        Orientation="Horizontal"
+                                        Spacing="0">
+                                        <Label
+                                            FontSize="14"
+                                            Text="$"
+                                            TextColor="White"
+                                            TranslationY="10"
+                                            VerticalOptions="Start" />
+                                        <Label
+                                            FontSize="40"
+                                            Text="{Binding Price}"
+                                            TextColor="White"
+                                            VerticalOptions="Start"
+                                            VerticalTextAlignment="Start" />
+                                    </StackLayout>
+
+
+
+                                </StackLayout>
+
+                                <Image
+                                    HorizontalOptions="End"
+                                    Source="moss"
+                                    TranslationX="40"
+                                    TranslationY="40"
+                                    VerticalOptions="End" />
+
+                            </Grid>
+                        </pancake:PancakeView>
+                    </DataTemplate>
+
+                </BindableLayout.ItemTemplate>
+
+            </FlexLayout>
+
+        </ScrollView>
+
+
+
+    </AbsoluteLayout>
+
+</ContentPage>
