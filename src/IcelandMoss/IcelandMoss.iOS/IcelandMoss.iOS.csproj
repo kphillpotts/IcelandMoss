@@ -171,4 +171,85 @@
   <ItemGroup>
     <BundleResource Include="Resources\settings_icon%402x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\blue_moss.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\blue_moss%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\blue_moss%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\green_moss.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\green_moss%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\green_moss%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\grey_moss.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\grey_moss%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\grey_moss%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\lavender_moss.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\lavender_moss%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\lavender_moss%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\moss.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\moss%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\moss%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\orange_moss%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pink_moss.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\orange_moss.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\orange_moss%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pink_moss%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pink_moss%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\red_moss.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\red_moss%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\red_moss%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\yellow_moss%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\yellow_moss.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\yellow_moss%403x.png" />
+  </ItemGroup>
 </Project>

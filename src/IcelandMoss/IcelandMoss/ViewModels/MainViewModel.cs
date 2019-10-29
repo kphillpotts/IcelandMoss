@@ -15,37 +15,88 @@ namespace IcelandMoss.ViewModels
             {
                 new ProductViewModel()
                 {
-                    Name = "Sky Blue",
-                    HeroColor = "#96C9F8",
-                    ImageUrl = "moss",
+                    HeroColor = "#95C9F7",
+                    Name="Sky Blue",
                     Price = 12,
+                    ImageUrl = "blue_moss",
                     IsFeatured = true
                 },
                 new ProductViewModel()
                 {
-                    Name = "Yellow Sun",
                     HeroColor = "#FFCA81",
-                    ImageUrl = "moss",
+                    Name="Yellow Sun",
                     Price = 17,
-                    IsFeatured = false
+                    ImageUrl = "yellow_moss",
+                    IsFeatured = true
                 },
+
                 new ProductViewModel()
                 {
-                    Name = "Lavender",
-                    HeroColor = "#D69DFB",
-                    ImageUrl = "moss",
+                    HeroColor = "#A2BAD3",
+                    Name="Grey Blue",
                     Price = 19,
+                    ImageUrl = "grey_moss",
+                    IsFeatured = true
+                },
+
+                new ProductViewModel()
+                {
+                    HeroColor = "#F796DD",
+                    Name="Pink",
+                    Price = 21,
+                    ImageUrl = "pink_moss",
+                    IsFeatured = false
+                },
+
+                 new ProductViewModel()
+                {
+                    HeroColor = "#95C9F7",
+                    Name="Sky Blue",
+                    Price = 12,
+                    ImageUrl = "blue_moss",
                     IsFeatured = false
                 },
 
                 new ProductViewModel()
                 {
-                    Name = "Green Life",
-                    HeroColor = "#74D59E",
-                    ImageUrl = "moss",
+                    HeroColor = "#D69EFC",
+                    Name="Lavender",
+                    Price = 19,
+                    ImageUrl = "lavender_moss",
+                    IsFeatured = false
+                },
+                new ProductViewModel()
+                {
+                    HeroColor = "#74D69E",
+                    Name="Green Life",
                     Price = 14,
+                    ImageUrl = "green_moss",
                     IsFeatured = true
-                }
+                },
+                new ProductViewModel()
+                {
+                    HeroColor = "#FB8183",
+                    Name="Red",
+                    Price = 21,
+                    ImageUrl = "red_moss",
+                    IsFeatured = false
+                },
+                new ProductViewModel()
+                {
+                    HeroColor = "#FB9B64",
+                    Name="Orange",
+                    Price = 14,
+                    ImageUrl = "orange_moss",
+                    IsFeatured = false
+                },
+                new ProductViewModel()
+                {
+                    HeroColor = "#D69EFC",
+                    Name="Lavender",
+                    Price = 19,
+                    ImageUrl = "lavender_moss",
+                    IsFeatured = false
+                },
 
             };
         }

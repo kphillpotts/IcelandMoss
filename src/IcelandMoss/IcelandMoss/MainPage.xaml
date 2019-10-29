@@ -87,7 +87,7 @@
             <FlexLayout
                 BindableLayout.ItemsSource="{Binding Products}"
                 Direction="Column"
-                HeightRequest="450"
+                HeightRequest="1300"
                 HorizontalOptions="Center"
                 Wrap="Wrap">
 
@@ -99,7 +99,7 @@
                             Margin="10"
                             BackgroundColor="{Binding HeroColor}"
                             CornerRadius="20"
-                            HeightRequest="{Binding IsFeatured, Converter={StaticResource FeaturedHeightConverter}"
+                            HeightRequest="{Binding IsFeatured, Converter={StaticResource FeaturedHeightConverter}}"
                             WidthRequest="160">
                             <Grid>
                                 <BoxView
@@ -156,7 +156,7 @@
 
                                 <Image
                                     HorizontalOptions="End"
-                                    Source="moss"
+                                    Source="{Binding ImageUrl}"
                                     TranslationX="40"
                                     TranslationY="40"
                                     VerticalOptions="End" />
@@ -170,8 +170,6 @@
             </FlexLayout>
 
         </ScrollView>
-
-
 
     </AbsoluteLayout>
 
