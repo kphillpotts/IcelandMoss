@@ -1,21 +1,46 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<Application xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             x:Class="IcelandMoss.App">
+<Application
+    x:Class="IcelandMoss.App"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converters="clr-namespace:IcelandMoss.Converters"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
     <Application.Resources>
-      <ResourceDictionary>
-        <OnPlatform x:TypeArguments="x:String" x:Key="MontserratMedium">
-          <On Platform="iOS" Value="Montserrat-Medium"/>
-          <On Platform="Android" Value="Montserrat-Medium.ttf#Regular"/>
-        </OnPlatform>
-        <OnPlatform x:TypeArguments="x:String" x:Key="MontserratLight">
-          <On Platform="iOS" Value="Montserrat-Light"/>
-          <On Platform="Android" Value="Montserrat-Light.ttf#Regular"/>
-        </OnPlatform>
-      </ResourceDictionary>
+        <ResourceDictionary>
+            <OnPlatform x:Key="MontserratMedium" x:TypeArguments="x:String">
+                <On Platform="iOS" Value="Montserrat-Medium" />
+                <On Platform="Android" Value="Montserrat-Medium.ttf#Regular" />
+            </OnPlatform>
+            <OnPlatform x:Key="MontserratLight" x:TypeArguments="x:String">
+                <On Platform="iOS" Value="Montserrat-Light" />
+                <On Platform="Android" Value="Montserrat-Light.ttf#Regular" />
+            </OnPlatform>
+
+            <Color x:Key="ButtonBackgroundColor">#F5F9FA</Color>
+            <Color x:Key="TextColor">#313643</Color>
+
+            <converters:BoolToStringConverter
+                x:Key="FeaturedHeightConverter"
+                FalseString="170"
+                TrueString="240" />
+
+            <Style x:Key="HeaderFontLight" TargetType="Label">
+                <Setter Property="FontFamily" Value="{StaticResource MontserratLight}" />
+                <Setter Property="FontSize" Value="28" />
+                <Setter Property="TextColor" Value="{StaticResource TextColor}" />
+            </Style>
+            <Style x:Key="HeaderFontMedium" TargetType="Label">
+                <Setter Property="FontFamily" Value="{StaticResource MontserratMedium}" />
+                <Setter Property="FontSize" Value="28" />
+                <Setter Property="TextColor" Value="{StaticResource TextColor}" />
+            </Style>
+            <Style x:Key="ButtonStyle" TargetType="ImageButton">
+                <Setter Property="BackgroundColor" Value="{StaticResource ButtonBackgroundColor}" />
+                <Setter Property="CornerRadius" Value="14" />
+            </Style>
+        </ResourceDictionary>
 
     </Application.Resources>
 </Application>

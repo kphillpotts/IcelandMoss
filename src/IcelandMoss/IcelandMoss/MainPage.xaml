@@ -3,6 +3,7 @@
     x:Class="IcelandMoss.MainPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:IcelandMoss.Controls"
     xmlns:converters="clr-namespace:IcelandMoss.Converters"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -45,44 +46,53 @@
 
     <AbsoluteLayout>
         <ImageButton
+            x:Name="HamburgerButton"
             Padding="10"
             AbsoluteLayout.LayoutBounds="20,20,48,48"
             BackgroundColor="White"
+            Clicked="HamburgerButton_Clicked"
             Source="hamburger_icon" />
 
         <ImageButton
+            x:Name="BasketIcon"
             Padding="10"
             AbsoluteLayout.LayoutBounds="340,20,48,48"
             Source="basket_icon"
             Style="{StaticResource ButtonStyle}" />
 
-        <StackLayout AbsoluteLayout.LayoutBounds="20,100,340,100">
+        <StackLayout x:Name="Header" AbsoluteLayout.LayoutBounds="20,100,340,100">
             <Label Style="{StaticResource HeaderFontLight}" Text="Choose your new" />
             <Label Style="{StaticResource HeaderFontMedium}" Text="green friend" />
         </StackLayout>
 
 
         <BoxView
+            x:Name="SearchBackground"
             AbsoluteLayout.LayoutBounds="20, 200, 300, 48"
             BackgroundColor="{StaticResource ButtonBackgroundColor}"
             CornerRadius="10" />
 
         <ImageButton
+            x:Name="SearchIcon"
             Padding="14"
             AbsoluteLayout.LayoutBounds="20,200,48,48"
             BackgroundColor="Transparent"
             Source="search_icon"
             Style="{StaticResource ButtonStyle}" />
 
-        <Entry AbsoluteLayout.LayoutBounds="60, 200, 240, 48" Placeholder="Search" />
+        <Entry
+            x:Name="SearchEntry"
+            AbsoluteLayout.LayoutBounds="60, 200, 240, 48"
+            Placeholder="Search" />
 
         <ImageButton
+            x:Name="SettingsIcon"
             Padding="14"
             AbsoluteLayout.LayoutBounds="340,200,48,48"
             Source="settings_icon"
             Style="{StaticResource ButtonStyle}" />
 
-        <ScrollView AbsoluteLayout.LayoutBounds="20,300, 380, 300">
+        <ScrollView x:Name="ScrollContainer" AbsoluteLayout.LayoutBounds="20,300, 380, 300">
 
             <FlexLayout
                 BindableLayout.ItemsSource="{Binding Products}"
@@ -94,75 +104,12 @@
                 <BindableLayout.ItemTemplate>
 
                     <DataTemplate>
+                        <controls:ProductDisplay HeightRequest="{Binding IsFeatured, Converter={StaticResource FeaturedHeightConverter}}">
 
-                        <pancake:PancakeView
-                            Margin="10"
-                            BackgroundColor="{Binding HeroColor}"
-                            CornerRadius="20"
-                            HeightRequest="{Binding IsFeatured, Converter={StaticResource FeaturedHeightConverter}}"
-                            WidthRequest="160">
-                            <Grid>
-                                <BoxView
-                                    CornerRadius="0,0,20,0"
-                                    HeightRequest="40"
-                                    HorizontalOptions="End"
-                                    Opacity=".5"
-                                    VerticalOptions="Start"
-                                    WidthRequest="40"
-                                    Color="White" />
-
-                                <Label
-                                    FontSize="20"
-                                    HeightRequest="40"
-                                    HorizontalOptions="End"
-                                    HorizontalTextAlignment="Center"
-                                    Text="+"
-                                    TextColor="White"
-                                    VerticalOptions="Start"
-                                    VerticalTextAlignment="Center"
-                                    WidthRequest="40" />
-
-                                <StackLayout Orientation="Vertical" Spacing="0">
-                                    <Label
-                                        Margin="10,10,0,0"
-                                        FontAttributes="Bold"
-                                        FontSize="16"
-                                        Style="{StaticResource HeaderFontMedium}"
-                                        Text="{Binding Name}"
-                                        TextColor="White" />
-
-                                    <StackLayout
-                                        Margin="10,0"
-                                        Padding="0"
-                                        Orientation="Horizontal"
-                                        Spacing="0">
-                                        <Label
-                                            FontSize="14"
-                                            Text="$"
-                                            TextColor="White"
-                                            TranslationY="10"
-                                            VerticalOptions="Start" />
-                                        <Label
-                                            FontSize="40"
-                                            Text="{Binding Price}"
-                                            TextColor="White"
-                                            VerticalOptions="Start"
-                                            VerticalTextAlignment="Start" />
-                                    </StackLayout>
-
-
-
-                                </StackLayout>
-
-                                <Image
-                                    HorizontalOptions="End"
-                                    Source="{Binding ImageUrl}"
-                                    TranslationX="40"
-                                    TranslationY="40"
-                                    VerticalOptions="End" />
-
-                            </Grid>
-                        </pancake:PancakeView>
+                            <controls:ProductDisplay.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                            </controls:ProductDisplay.GestureRecognizers>
+                        </controls:ProductDisplay>
                     </DataTemplate>
 
                 </BindableLayout.ItemTemplate>
@@ -170,6 +117,13 @@
             </FlexLayout>
 
         </ScrollView>
+
+        <controls:ProductDisplay x:Name="FakeProductCell" IsVisible="False">
+            <controls:ProductDisplay.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" />
+            </controls:ProductDisplay.GestureRecognizers>
+        </controls:ProductDisplay>
+
 
     </AbsoluteLayout>
 

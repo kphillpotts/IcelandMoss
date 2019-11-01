@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="IcelandMoss.Controls.ProductDisplay"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    mc:Ignorable="d">
+
+
+    <pancake:PancakeView
+        Margin="10"
+        BackgroundColor="{Binding HeroColor}"
+        CornerRadius="20"
+        WidthRequest="160">
+
+        <Grid>
+            <BoxView
+                x:Name="AddBackground"
+                CornerRadius="0,0,20,0"
+                HeightRequest="40"
+                HorizontalOptions="End"
+                Opacity=".5"
+                VerticalOptions="Start"
+                WidthRequest="40"
+                Color="White" />
+
+            <Label
+                x:Name="AddButton"
+                FontSize="20"
+                HeightRequest="40"
+                HorizontalOptions="End"
+                HorizontalTextAlignment="Center"
+                Text="+"
+                TextColor="White"
+                VerticalOptions="Start"
+                VerticalTextAlignment="Center"
+                WidthRequest="40" />
+
+            <StackLayout Orientation="Vertical" Spacing="0">
+                <Label
+                    x:Name="NameLabel"
+                    Margin="10,10,0,0"
+                    FontAttributes="Bold"
+                    FontSize="16"
+                    Style="{StaticResource HeaderFontMedium}"
+                    Text="{Binding Name}"
+                    TextColor="White" />
+
+                <StackLayout
+                    x:Name="PriceLabel"
+                    Margin="10,0"
+                    Padding="0"
+                    Orientation="Horizontal"
+                    Spacing="0">
+                    <Label
+                        FontSize="14"
+                        Text="$"
+                        TextColor="White"
+                        TranslationY="10"
+                        VerticalOptions="Start" />
+                    <Label
+                        FontSize="40"
+                        Text="{Binding Price}"
+                        TextColor="White"
+                        VerticalOptions="Start"
+                        VerticalTextAlignment="Start" />
+                </StackLayout>
+
+
+
+            </StackLayout>
+
+            <Image
+                HorizontalOptions="End"
+                Source="{Binding ImageUrl}"
+                TranslationX="40"
+                TranslationY="40"
+                VerticalOptions="End" />
+
+        </Grid>
+    </pancake:PancakeView>
+
+</ContentView>
