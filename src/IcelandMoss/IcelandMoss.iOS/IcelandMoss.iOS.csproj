@@ -67,6 +67,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <BundleResource Include="Resources\Montserrat-Light.ttf" />
     <BundleResource Include="Resources\Montserrat-Medium.ttf" />
+    <BundleResource Include="Resources\fas.otf" />
+    <BundleResource Include="Resources\far.otf" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />

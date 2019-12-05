@@ -26,6 +26,17 @@
                 FalseString="170"
                 TrueString="240" />
 
+            <converters:BoolToStringConverter
+                x:Key="FeaturedOffsetYConverter"
+                FalseString="40"
+                TrueString="100" />
+
+            <converters:BoolToStringConverter
+                x:Key="FeaturedOffsetXConverter"
+                FalseString="60"
+                TrueString="60" />
+
+
             <Style x:Key="HeaderFontLight" TargetType="Label">
                 <Setter Property="FontFamily" Value="{StaticResource MontserratLight}" />
                 <Setter Property="FontSize" Value="28" />
@@ -104,7 +115,10 @@
                 <BindableLayout.ItemTemplate>
 
                     <DataTemplate>
-                        <controls:ProductDisplay HeightRequest="{Binding IsFeatured, Converter={StaticResource FeaturedHeightConverter}}">
+                        <controls:ProductDisplay
+                            HeightRequest="{Binding IsFeatured, Converter={StaticResource FeaturedHeightConverter}}"
+                            ImageOffsetX="{Binding IsFeatured, Converter={StaticResource FeaturedOffsetXConverter}}"
+                            ImageOffsetY="{Binding IsFeatured, Converter={StaticResource FeaturedOffsetYConverter}}">
 
                             <controls:ProductDisplay.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
@@ -124,6 +138,7 @@
             </controls:ProductDisplay.GestureRecognizers>
         </controls:ProductDisplay>
 
+        <controls:ProductDisplayPopover AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" />
 
     </AbsoluteLayout>
 

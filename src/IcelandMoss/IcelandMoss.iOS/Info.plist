@@ -39,6 +39,8 @@
   <array>
     <string>Montserrat-Light.ttf</string>
       <string>Montserrat-Medium.ttf</string>
+    <string>fas.otf</string>
+    <string>far.otf</string>
 </array>
 </dict>
 </plist>

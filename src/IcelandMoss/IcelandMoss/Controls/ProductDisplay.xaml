@@ -73,11 +73,10 @@
             </StackLayout>
 
             <Image
-                HorizontalOptions="End"
+                x:Name="ProductImage"
+                HorizontalOptions="Center"
                 Source="{Binding ImageUrl}"
-                TranslationX="40"
-                TranslationY="40"
-                VerticalOptions="End" />
+                VerticalOptions="Start" />
 
         </Grid>
     </pancake:PancakeView>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,7 +18,37 @@ namespace IcelandMoss.Controls
             InitializeComponent();
         }
 
-        const Int32 animationSpeed = 300;
+        public static readonly BindableProperty ImageOffsetYProperty =
+            BindableProperty.Create(nameof(ImageOffsetY), typeof(int), typeof(ProductDisplay), 0);
+
+        public static readonly BindableProperty ImageOffsetXProperty =
+            BindableProperty.Create(nameof(ImageOffsetX), typeof(int), typeof(ProductDisplay), 0);
+
+
+        public int ImageOffsetY
+        {
+            get => (int)GetValue(ImageOffsetYProperty);
+            set => SetValue(ImageOffsetYProperty, value);
+        }
+
+        public int ImageOffsetX
+        {
+            get => (int)GetValue(ImageOffsetXProperty);
+            set => SetValue(ImageOffsetXProperty, value);
+        }
+
+        protected override void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            base.OnPropertyChanged(propertyName);
+
+            if (propertyName == ImageOffsetYProperty.PropertyName)
+                ProductImage.TranslationY = ImageOffsetY;
+
+            if (propertyName == ImageOffsetXProperty.PropertyName)
+                ProductImage.TranslationX = ImageOffsetX;
+        }
+
+        const Int32 animationSpeed = 500;
 
         internal async Task ExpandToFill(Rectangle bounds)
         {
@@ -26,6 +57,9 @@ namespace IcelandMoss.Controls
             AddButton.Opacity = 1;
             NameLabel.Opacity = 1;
             PriceLabel.Opacity = 1;
+            ProductImage.Scale = 1;
+            ProductImage.TranslationX = ImageOffsetX;
+            ProductImage.TranslationY = ImageOffsetY;
 
             // destination rect
             var destRect = new Rectangle(
@@ -41,7 +75,12 @@ namespace IcelandMoss.Controls
             _ = PriceLabel.FadeTo(0, animationSpeed / 2);
 
 
+            _ = ProductImage.TranslateTo(0, ProductImage.TranslationY, animationSpeed * 2);
             await this.LayoutTo(destRect, animationSpeed * 2, Easing.SinInOut);
+            
+
+            _ = ProductImage.ScaleTo(1.1, animationSpeed * 2);
+            _ = ProductImage.TranslateTo(0, 50, animationSpeed * 2);
             await this.LayoutTo(bounds.Inflate(50, 50), animationSpeed * 2, Easing.SinInOut);
 
         }

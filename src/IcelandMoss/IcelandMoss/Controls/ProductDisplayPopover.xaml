@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="IcelandMoss.Controls.ProductDisplayPopover"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:dave="clr-namespace:com.ptdave.xamarin.FontHelpers;assembly=com.ptdave.xamarin"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <BoxView Grid.RowSpan="3" BackgroundColor="Purple" />
+
+        <BoxView
+            Grid.Row="2"
+            BackgroundColor="White"
+            CornerRadius="30,30,0,0"
+            HeightRequest="300"
+            VerticalOptions="End" />
+
+        <ImageButton
+            Margin="20"
+            Padding="9"
+            BackgroundColor="Transparent"
+            HeightRequest="48"
+            HorizontalOptions="Start"
+            Source="back_arrow"
+            VerticalOptions="Center"
+            WidthRequest="48" />
+
+        <ImageButton
+            Margin="20"
+            Padding="10"
+            BackgroundColor="#33FFFFFF"
+            HeightRequest="48"
+            HorizontalOptions="End"
+            Source="heart_icon"
+            Style="{StaticResource ButtonStyle}"
+            VerticalOptions="Center"
+            WidthRequest="48" />
+
+        <Grid
+            Grid.Row="2"
+            Margin="20"
+            RowSpacing="20"
+            VerticalOptions="End">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Label Style="{StaticResource HeaderFontLight}" Text="Lavander" />
+
+
+            <!--  Quantity and Cost row  -->
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!--  stepper control  -->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Button Text="-" />
+                    <Label
+                        Grid.Column="1"
+                        HorizontalOptions="Center"
+                        Style="{StaticResource HeaderFontLight}"
+                        Text="1"
+                        VerticalOptions="Center" />
+                    <Button Grid.Column="2" Text="+" />
+                </Grid>
+
+                <Label
+                    Grid.Column="1"
+                    HorizontalOptions="Center"
+                    Style="{StaticResource HeaderFontLight}"
+                    Text="$19"
+                    VerticalOptions="Center" />
+            </Grid>
+
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <StackLayout Orientation="Vertical">
+                    <Label VerticalTextAlignment="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span
+                                    FontFamily="{StaticResource FontAwesome5FreeSolid}"
+                                    FontSize="10"
+                                    Text="{Static dave:FAS.Tint}"
+                                    TextColor="#AAAAAA" />
+                                <Span Text=" " />
+                                <Span FontSize="10" TextColor="#AAAAAA">Humidity</Span>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Label
+                        FontSize="12"
+                        Style="{StaticResource HeaderFontMedium}"
+                        Text="50 - 75%" />
+                </StackLayout>
+
+
+                <StackLayout Grid.Column="1" Orientation="Vertical">
+                    <Label VerticalTextAlignment="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span
+                                    FontFamily="{StaticResource FontAwesome5FreeSolid}"
+                                    FontSize="10"
+                                    Text="{Static dave:FAS.Sun}"
+                                    TextColor="#AAAAAA" />
+                                <Span Text=" " />
+                                <Span FontSize="10" TextColor="#AAAAAA">Light</Span>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Label
+                        FontSize="12"
+                        Style="{StaticResource HeaderFontMedium}"
+                        Text="50 - 75%" />
+                </StackLayout>
+
+                <StackLayout Grid.Column="2" Orientation="Vertical">
+                    <Label VerticalTextAlignment="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span
+                                    FontFamily="{StaticResource FontAwesome5FreeSolid}"
+                                    FontSize="10"
+                                    Text="{Static dave:FAS.ThermometerEmpty}"
+                                    TextColor="#AAAAAA" />
+                                <Span Text=" " />
+                                <Span FontSize="10" TextColor="#AAAAAA">Humidity</Span>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Label
+                        FontSize="12"
+                        Style="{StaticResource HeaderFontMedium}"
+                        Text="50 - 75%" />
+                </StackLayout>
+
+
+            </Grid>
+
+
+
+        </Grid>
+
+
+    </Grid>
+
+
+</ContentView>

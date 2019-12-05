@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IcelandMoss.Controls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -197,10 +198,12 @@ namespace IcelandMoss
         private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
             // the user has tapped on an element
-            View element = sender as View;
+            ProductDisplay element = sender as ProductDisplay;
 
             // set the binding context to the selected cell
             FakeProductCell.BindingContext = element.BindingContext;
+            FakeProductCell.ImageOffsetX = element.ImageOffsetX;
+            FakeProductCell.ImageOffsetY = element.ImageOffsetY;
             FakeProductCell.IsVisible = true;
 
             // set the layout to the same postion
