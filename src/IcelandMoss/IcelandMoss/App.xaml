@@ -9,14 +9,14 @@
     mc:Ignorable="d">
     <Application.Resources>
         <ResourceDictionary>
-          <OnPlatform x:TypeArguments="x:String" x:Key="FontAwesome5FreeRegular">
-            <On Platform="iOS" Value="FontAwesome5Free-Regular"/>
-            <On Platform="Android" Value="far.otf#Regular"/>
-          </OnPlatform>
-          <OnPlatform x:TypeArguments="x:String" x:Key="FontAwesome5FreeSolid">
-            <On Platform="iOS" Value="FontAwesome5Free-Solid"/>
-            <On Platform="Android" Value="fas.otf#Solid"/>
-          </OnPlatform>
+            <OnPlatform x:Key="FontAwesome5FreeRegular" x:TypeArguments="x:String">
+                <On Platform="iOS" Value="FontAwesome5Free-Regular" />
+                <On Platform="Android" Value="far.otf#Regular" />
+            </OnPlatform>
+            <OnPlatform x:Key="FontAwesome5FreeSolid" x:TypeArguments="x:String">
+                <On Platform="iOS" Value="FontAwesome5Free-Solid" />
+                <On Platform="Android" Value="fas.otf#Solid" />
+            </OnPlatform>
             <OnPlatform x:Key="MontserratMedium" x:TypeArguments="x:String">
                 <On Platform="iOS" Value="Montserrat-Medium" />
                 <On Platform="Android" Value="Montserrat-Medium.ttf#Regular" />
@@ -28,6 +28,7 @@
 
             <Color x:Key="ButtonBackgroundColor">#F5F9FA</Color>
             <Color x:Key="TextColor">#313643</Color>
+            <Color x:Key="LightTextColor">#B2B2B2</Color>
 
             <converters:BoolToStringConverter
                 x:Key="FeaturedHeightConverter"
@@ -47,6 +48,17 @@
             <Style x:Key="ButtonStyle" TargetType="ImageButton">
                 <Setter Property="BackgroundColor" Value="{StaticResource ButtonBackgroundColor}" />
                 <Setter Property="CornerRadius" Value="14" />
+            </Style>
+            <Style x:Key="BodyFontMedium" TargetType="Label">
+                <Setter Property="FontFamily" Value="{StaticResource MontserratMedium}" />
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="TextColor" Value="{StaticResource LightTextColor}" />
+            </Style>
+
+            <Style x:Key="BodyFontLight" TargetType="Label">
+                <Setter Property="FontFamily" Value="{StaticResource MontserratLight}" />
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="TextColor" Value="{StaticResource LightTextColor}" />
             </Style>
 
             <Style TargetType="Grid">

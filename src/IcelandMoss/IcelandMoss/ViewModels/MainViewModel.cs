@@ -9,6 +9,14 @@ namespace IcelandMoss.ViewModels
     {
         public IList<ProductViewModel> Products { get; set; }
 
+        private ProductViewModel _selectedProduct;
+
+        public ProductViewModel SelectedProduct
+        {
+            get { return _selectedProduct; }
+            set { SetProperty(ref _selectedProduct, value); }
+        }
+
         public MainViewModel()
         {
             Products = new ObservableRangeCollection<ProductViewModel>()

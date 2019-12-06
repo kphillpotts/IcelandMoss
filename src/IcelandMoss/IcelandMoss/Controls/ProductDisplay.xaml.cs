@@ -81,8 +81,9 @@ namespace IcelandMoss.Controls
 
             _ = ProductImage.ScaleTo(1.1, animationSpeed * 2);
             _ = ProductImage.TranslateTo(0, 50, animationSpeed * 2);
-            await this.LayoutTo(bounds.Inflate(50, 50), animationSpeed * 2, Easing.SinInOut);
-
+            Rectangle expandedBounds = bounds.Inflate(50, 50);
+            await this.LayoutTo(expandedBounds, animationSpeed * 2, Easing.SinInOut);
+            AbsoluteLayout.SetLayoutBounds(this, expandedBounds);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using IcelandMoss.Controls;
+using IcelandMoss.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -38,6 +39,7 @@ namespace IcelandMoss
             SizeChanged += MainPage_SizeChanged;
             ScrollContainer.Scrolled += ScrollContainer_Scrolled;
         }
+
 
         private async void ScrollContainer_Scrolled(object sender, ScrolledEventArgs e)
         {
@@ -204,7 +206,11 @@ namespace IcelandMoss
             FakeProductCell.BindingContext = element.BindingContext;
             FakeProductCell.ImageOffsetX = element.ImageOffsetX;
             FakeProductCell.ImageOffsetY = element.ImageOffsetY;
+            FakeProductCell.Opacity = 1;
             FakeProductCell.IsVisible = true;
+
+            // set the selected item
+            ((MainViewModel)this.BindingContext).SelectedProduct = element.BindingContext as ProductViewModel;
 
             // set the layout to the same postion
             var yScroll = ScrollContainer.ScrollY;
@@ -219,9 +225,34 @@ namespace IcelandMoss
             element.Opacity = 0.01;
             await FakeProductCell.ExpandToFill(this.Bounds);
             element.Opacity = 1;
-            // redisplay
 
-         }
+            // display the page popover
+            PagePopover.Opacity = 0;
+            PagePopover.IsVisible = true;
+            await PagePopover.Expand();
+
+        }
+
+        internal async Task HidePopover()
+        {
+
+            // fade out the elements
+            await Task.WhenAll(
+                new Task[]
+                {
+                    FakeProductCell.FadeTo(0),
+                    PagePopover.FadeTo(0)
+                });
+
+            // hide our fake product cell
+            FakeProductCell.IsVisible = false;
+
+            // hide our Page poper
+            PagePopover.IsVisible = false;
+
+        }
+
+
 
         private void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)
         {

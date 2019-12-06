@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="IcelandMoss.Controls.InfoPanel"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:dave="clr-namespace:com.ptdave.xamarin.FontHelpers;assembly=com.ptdave.xamarin"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <StackLayout Grid.Column="1" Orientation="Vertical">
+        <Label VerticalTextAlignment="Center">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span
+                        x:Name="TitleIconSpan"
+                        FontFamily="{StaticResource FontAwesome5FreeSolid}"
+                        FontSize="10"
+                        Text="{Static dave:FAS.Sun}"
+                        TextColor="#AAAAAA" />
+                    <Span Text=" " />
+                    <Span
+                        x:Name="TitleLabel"
+                        FontSize="10"
+                        TextColor="#AAAAAA">
+                        Light
+                    </Span>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+        <Label
+            x:Name="ValueLabel"
+            FontSize="12"
+            Style="{StaticResource HeaderFontMedium}"
+            Text="50 - 75%" />
+    </StackLayout>
+
+
+</ContentView>

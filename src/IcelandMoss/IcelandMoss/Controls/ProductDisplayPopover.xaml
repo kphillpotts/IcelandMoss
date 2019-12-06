@@ -3,9 +3,11 @@
     x:Class="IcelandMoss.Controls.ProductDisplayPopover"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:IcelandMoss.Controls"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:dave="clr-namespace:com.ptdave.xamarin.FontHelpers;assembly=com.ptdave.xamarin"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
     mc:Ignorable="d">
 
     <Grid>
@@ -14,19 +16,19 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <BoxView Grid.RowSpan="3" BackgroundColor="Purple" />
 
         <BoxView
+            x:Name="BackgroundPanel"
             Grid.Row="2"
             BackgroundColor="White"
             CornerRadius="30,30,0,0"
-            HeightRequest="300"
-            VerticalOptions="End" />
+            VerticalOptions="Fill" />
 
         <ImageButton
             Margin="20"
             Padding="9"
             BackgroundColor="Transparent"
+            Clicked="ImageButton_Clicked"
             HeightRequest="48"
             HorizontalOptions="Start"
             Source="back_arrow"
@@ -45,6 +47,7 @@
             WidthRequest="48" />
 
         <Grid
+            x:Name="ProductPopoverGrid"
             Grid.Row="2"
             Margin="20"
             RowSpacing="20"
@@ -57,7 +60,7 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <Label Style="{StaticResource HeaderFontLight}" Text="Lavander" />
+            <Label Style="{StaticResource HeaderFontLight}" Text="{Binding SelectedProduct.Name}" />
 
 
             <!--  Quantity and Cost row  -->
@@ -74,22 +77,63 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-                    <Button Text="-" />
+                    <Button
+                        BackgroundColor="{StaticResource ButtonBackgroundColor}"
+                        Clicked="DecreaseQuantity_Clicked"
+                        CornerRadius="14"
+                        FontSize="20"
+                        HeightRequest="48"
+                        HorizontalOptions="Center"
+                        Text="–"
+                        VerticalOptions="Center"
+                        WidthRequest="48" />
                     <Label
+                        x:Name="QuantityDisplay"
                         Grid.Column="1"
                         HorizontalOptions="Center"
                         Style="{StaticResource HeaderFontLight}"
                         Text="1"
                         VerticalOptions="Center" />
-                    <Button Grid.Column="2" Text="+" />
+                    <Button
+                        Grid.Column="2"
+                        BackgroundColor="{StaticResource ButtonBackgroundColor}"
+                        Clicked="IncreaseQuantity_Clicked"
+                        CornerRadius="14"
+                        FontSize="20"
+                        HeightRequest="48"
+                        HorizontalOptions="Center"
+                        Text="＋"
+                        VerticalOptions="Center"
+                        WidthRequest="48" />
                 </Grid>
 
-                <Label
+                <StackLayout
+                    x:Name="PriceLabel"
+                    Grid.Column="1"
+                    Margin="10,0"
+                    HorizontalOptions="Center"
+                    Orientation="Horizontal"
+                    Spacing="4"
+                    VerticalOptions="Center">
+                    <Label
+                        FontSize="14"
+                        Text="$"
+                        TranslationY="4"
+                        VerticalOptions="Start" />
+                    <Label
+                        x:Name="QuantityDisplayValue"
+                        Style="{StaticResource HeaderFontLight}"
+                        Text="19"
+                        VerticalOptions="Start"
+                        VerticalTextAlignment="Start" />
+                </StackLayout>
+
+                <!--<Label
                     Grid.Column="1"
                     HorizontalOptions="Center"
                     Style="{StaticResource HeaderFontLight}"
                     Text="$19"
-                    VerticalOptions="Center" />
+                    VerticalOptions="Center" />-->
             </Grid>
 
             <Grid Grid.Row="2">
@@ -99,69 +143,55 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <StackLayout Orientation="Vertical">
-                    <Label VerticalTextAlignment="Center">
-                        <Label.FormattedText>
-                            <FormattedString>
-                                <Span
-                                    FontFamily="{StaticResource FontAwesome5FreeSolid}"
-                                    FontSize="10"
-                                    Text="{Static dave:FAS.Tint}"
-                                    TextColor="#AAAAAA" />
-                                <Span Text=" " />
-                                <Span FontSize="10" TextColor="#AAAAAA">Humidity</Span>
-                            </FormattedString>
-                        </Label.FormattedText>
-                    </Label>
-                    <Label
-                        FontSize="12"
-                        Style="{StaticResource HeaderFontMedium}"
-                        Text="50 - 75%" />
-                </StackLayout>
+                <controls:InfoPanel
+                    Title="Humidity"
+                    TitleIcon="{Static dave:FAS.Tint}"
+                    Value="50 - 75%" />
 
+                <controls:InfoPanel
+                    Title="Light"
+                    Grid.Column="1"
+                    TitleIcon="{Static dave:FAS.Sun}"
+                    Value="5k - 10k lux" />
 
-                <StackLayout Grid.Column="1" Orientation="Vertical">
-                    <Label VerticalTextAlignment="Center">
-                        <Label.FormattedText>
-                            <FormattedString>
-                                <Span
-                                    FontFamily="{StaticResource FontAwesome5FreeSolid}"
-                                    FontSize="10"
-                                    Text="{Static dave:FAS.Sun}"
-                                    TextColor="#AAAAAA" />
-                                <Span Text=" " />
-                                <Span FontSize="10" TextColor="#AAAAAA">Light</Span>
-                            </FormattedString>
-                        </Label.FormattedText>
-                    </Label>
-                    <Label
-                        FontSize="12"
-                        Style="{StaticResource HeaderFontMedium}"
-                        Text="50 - 75%" />
-                </StackLayout>
-
-                <StackLayout Grid.Column="2" Orientation="Vertical">
-                    <Label VerticalTextAlignment="Center">
-                        <Label.FormattedText>
-                            <FormattedString>
-                                <Span
-                                    FontFamily="{StaticResource FontAwesome5FreeSolid}"
-                                    FontSize="10"
-                                    Text="{Static dave:FAS.ThermometerEmpty}"
-                                    TextColor="#AAAAAA" />
-                                <Span Text=" " />
-                                <Span FontSize="10" TextColor="#AAAAAA">Humidity</Span>
-                            </FormattedString>
-                        </Label.FormattedText>
-                    </Label>
-                    <Label
-                        FontSize="12"
-                        Style="{StaticResource HeaderFontMedium}"
-                        Text="50 - 75%" />
-                </StackLayout>
+                <controls:InfoPanel
+                    Title="Temperature"
+                    Grid.Column="2"
+                    TitleIcon="{Static dave:FAS.ThermometerEmpty}"
+                    Value="18 - 27 ℃" />
 
 
             </Grid>
+
+            <StackLayout Grid.Row="3">
+                <Label Style="{StaticResource BodyFontLight}" Text="Contained in glass polygonal florarium." />
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Style="{StaticResource BodyFontMedium}" Text="Size: " />
+                            <Span Style="{StaticResource BodyFontLight}" Text="150x150 mm." />
+                            <Span Text="  " />
+                            <Span Style="{StaticResource BodyFontMedium}" Text="Diameter: " />
+                            <Span Style="{StaticResource BodyFontLight}" Text="190mm" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </StackLayout>
+
+            <pancake:PancakeView
+                x:Name="AddToCartButton"
+                Grid.Row="4"
+                BackgroundColor="#FB9B63"
+                CornerRadius="10"
+                HeightRequest="60">
+                <Label
+                    FontSize="20"
+                    HorizontalOptions="Center"
+                    Text="Add to Cart"
+                    TextColor="White"
+                    VerticalOptions="Center" />
+            </pancake:PancakeView>
+
 
 
 
