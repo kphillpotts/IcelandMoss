@@ -9,6 +9,8 @@
     mc:Ignorable="d">
     <Application.Resources>
         <ResourceDictionary>
+
+            <!--  fonts  -->
             <OnPlatform x:Key="FontAwesome5FreeRegular" x:TypeArguments="x:String">
                 <On Platform="iOS" Value="FontAwesome5Free-Regular" />
                 <On Platform="Android" Value="far.otf#Regular" />
@@ -26,15 +28,12 @@
                 <On Platform="Android" Value="Montserrat-Light.ttf#Regular" />
             </OnPlatform>
 
+            <!--  colors  -->
             <Color x:Key="ButtonBackgroundColor">#F5F9FA</Color>
             <Color x:Key="TextColor">#313643</Color>
             <Color x:Key="LightTextColor">#B2B2B2</Color>
 
-            <converters:BoolToStringConverter
-                x:Key="FeaturedHeightConverter"
-                FalseString="170"
-                TrueString="240" />
-
+            <!--  styles  -->
             <Style x:Key="HeaderFontLight" TargetType="Label">
                 <Setter Property="FontFamily" Value="{StaticResource MontserratLight}" />
                 <Setter Property="FontSize" Value="28" />
@@ -61,11 +60,11 @@
                 <Setter Property="TextColor" Value="{StaticResource LightTextColor}" />
             </Style>
 
+            <!--  implicit styles (applies to all elements of TargetType)  -->
             <Style TargetType="Grid">
                 <Setter Property="RowSpacing" Value="0" />
             </Style>
 
         </ResourceDictionary>
-
     </Application.Resources>
 </Application>
