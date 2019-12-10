@@ -7,7 +7,6 @@
     xmlns:converters="clr-namespace:IcelandMoss.Converters"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
     xmlns:viewmodels="clr-namespace:IcelandMoss.ViewModels"
     BackgroundColor="White"
     mc:Ignorable="d">
@@ -125,5 +124,4 @@
             IsVisible="False" />
 
     </AbsoluteLayout>
-
 </ContentPage>

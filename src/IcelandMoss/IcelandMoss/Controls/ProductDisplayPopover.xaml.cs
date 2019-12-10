@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -37,18 +36,21 @@ namespace IcelandMoss.Controls
             Animation animation = new Animation();
             animation.Add(0, 1, new Animation(t => AddToCartButton.ScaleX = t, 0, 1, Easing.SpringOut));
             animation.Commit(this, "ButtonAnimation", 16, 500);
-
         }
 
-        
-
-        private async void ImageButton_Clicked(object sender, EventArgs e)
+        private async void BackArrowButton_Clicked(object sender, EventArgs e)
         {
             // get the parent page
-            ((MainPage)this.GetParentPage()).HidePopover();
+            await ((MainPage)this.GetParentPage()).HidePopover();
         }
 
         int quantityCount = 1;
+
+        private void IncreaseQuantity_Clicked(object sender, EventArgs e)
+        {
+            quantityCount++;
+            UpdateDisplay();
+        }
 
         private void DecreaseQuantity_Clicked(object sender, EventArgs e)
         {
@@ -62,12 +64,6 @@ namespace IcelandMoss.Controls
             QuantityDisplay.Text = quantityCount.ToString();
             var unitPrice = ((MainViewModel)this.BindingContext).SelectedProduct.Price;
             QuantityDisplayValue.Text = (unitPrice * quantityCount).ToString();
-        }
-
-        private void IncreaseQuantity_Clicked(object sender, EventArgs e)
-        {
-            quantityCount++;
-            UpdateDisplay();
         }
     }
 }

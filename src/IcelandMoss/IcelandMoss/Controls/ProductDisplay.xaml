@@ -8,7 +8,6 @@
     xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
     mc:Ignorable="d">
 
-
     <pancake:PancakeView
         Margin="10"
         BackgroundColor="{Binding HeroColor}"
@@ -67,9 +66,6 @@
                         VerticalOptions="Start"
                         VerticalTextAlignment="Start" />
                 </StackLayout>
-
-
-
             </StackLayout>
 
             <Image
@@ -80,5 +76,4 @@
 
         </Grid>
     </pancake:PancakeView>
-
 </ContentView>

@@ -13,12 +13,11 @@ namespace IcelandMoss.ViewModels
         public decimal Price { get; set; }
         public string HeroColor { get; set; }
         public bool IsFeatured { get; set; }
-
-        // todo - extend with additional properties later
-
-
-
-
-
+        public string Humidity { get; set; } 
+        public string Light { get; set; }
+        public string Temperature { get; set; }
+        public string Description { get; set; }
+        public string Size { get; set; }
+        public string Diameter { get; set; }
     }
 }

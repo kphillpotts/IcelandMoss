@@ -12,7 +12,6 @@ namespace IcelandMoss.Converters
         public string TrueString { get; set; }
         public string FalseString { get; set; }
 
-
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if ((bool)value == true)
@@ -20,8 +19,6 @@ namespace IcelandMoss.Converters
             else
                 return FalseString;
         }
-
-
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {

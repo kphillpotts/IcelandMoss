@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
+﻿using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -42,13 +37,17 @@ namespace IcelandMoss.Controls
             base.OnPropertyChanged(propertyName);
 
             if (propertyName == ImageOffsetYProperty.PropertyName)
+            {
                 ProductImage.TranslationY = ImageOffsetY;
+            }
 
             if (propertyName == ImageOffsetXProperty.PropertyName)
+            {
                 ProductImage.TranslationX = ImageOffsetX;
+            }
         }
 
-        const Int32 animationSpeed = 500;
+        const int animationSpeed = 500;
 
         internal async Task ExpandToFill(Rectangle bounds)
         {
@@ -77,7 +76,7 @@ namespace IcelandMoss.Controls
 
             _ = ProductImage.TranslateTo(0, ProductImage.TranslationY, animationSpeed * 2);
             await this.LayoutTo(destRect, animationSpeed * 2, Easing.SinInOut);
-            
+
 
             _ = ProductImage.ScaleTo(1.1, animationSpeed * 2);
             _ = ProductImage.TranslateTo(0, 50, animationSpeed * 2);

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace IcelandMoss.Controls
@@ -12,7 +6,7 @@ namespace IcelandMoss.Controls
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class InfoPanel : ContentView
     {
-        #region Title
+        #region Bindable Properties
         public static readonly BindableProperty TitleProperty = 
             BindableProperty.Create(
                 nameof(Title), 
@@ -36,11 +30,7 @@ namespace IcelandMoss.Controls
             get => (string)GetValue(TitleProperty);
             set => SetValue(TitleProperty, value);
         }
-        #endregion
 
-
-
-        #region TitleIcon
         public static readonly BindableProperty TitleIconProperty = BindableProperty.Create(nameof(TitleIcon), typeof(string), typeof(InfoPanel), propertyChanged: (obj, old, newV) =>
         {
             var me = obj as InfoPanel;
@@ -60,11 +50,7 @@ namespace IcelandMoss.Controls
             get => (string)GetValue(TitleIconProperty);
             set => SetValue(TitleIconProperty, value);
         }
-        #endregion
 
-
-
-        #region Value
         public static readonly BindableProperty ValueProperty = BindableProperty.Create(nameof(Value), typeof(string), typeof(InfoPanel), propertyChanged: (obj, old, newV) =>
         {
             var me = obj as InfoPanel;
@@ -85,9 +71,6 @@ namespace IcelandMoss.Controls
             set => SetValue(ValueProperty, value);
         }
         #endregion
-
-
-
 
         public InfoPanel()
         {

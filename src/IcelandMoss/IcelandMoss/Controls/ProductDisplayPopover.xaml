@@ -28,23 +28,20 @@
             Margin="20"
             Padding="9"
             BackgroundColor="Transparent"
-            Clicked="ImageButton_Clicked"
-            HeightRequest="48"
+            Clicked="BackArrowButton_Clicked"
             HorizontalOptions="Start"
             Source="back_arrow"
-            VerticalOptions="Center"
-            WidthRequest="48" />
+            Style="{StaticResource ButtonStyle}"
+            VerticalOptions="Center" />
 
         <ImageButton
             Margin="20"
             Padding="10"
             BackgroundColor="#33FFFFFF"
-            HeightRequest="48"
             HorizontalOptions="End"
             Source="heart_icon"
             Style="{StaticResource ButtonStyle}"
-            VerticalOptions="Center"
-            WidthRequest="48" />
+            VerticalOptions="Center" />
 
         <Grid
             x:Name="ProductPopoverGrid"
@@ -62,7 +59,6 @@
 
             <Label Style="{StaticResource HeaderFontLight}" Text="{Binding SelectedProduct.Name}" />
 
-
             <!--  Quantity and Cost row  -->
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
@@ -78,15 +74,9 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Button
-                        BackgroundColor="{StaticResource ButtonBackgroundColor}"
                         Clicked="DecreaseQuantity_Clicked"
-                        CornerRadius="14"
-                        FontSize="20"
-                        HeightRequest="48"
-                        HorizontalOptions="Center"
-                        Text="–"
-                        VerticalOptions="Center"
-                        WidthRequest="48" />
+                        Style="{StaticResource CommandButtonStyle}"
+                        Text="–" />
                     <Label
                         x:Name="QuantityDisplay"
                         Grid.Column="1"
@@ -96,15 +86,9 @@
                         VerticalOptions="Center" />
                     <Button
                         Grid.Column="2"
-                        BackgroundColor="{StaticResource ButtonBackgroundColor}"
                         Clicked="IncreaseQuantity_Clicked"
-                        CornerRadius="14"
-                        FontSize="20"
-                        HeightRequest="48"
-                        HorizontalOptions="Center"
-                        Text="＋"
-                        VerticalOptions="Center"
-                        WidthRequest="48" />
+                        Style="{StaticResource CommandButtonStyle}"
+                        Text="＋" />
                 </Grid>
 
                 <StackLayout
@@ -127,13 +111,6 @@
                         VerticalOptions="Start"
                         VerticalTextAlignment="Start" />
                 </StackLayout>
-
-                <!--<Label
-                    Grid.Column="1"
-                    HorizontalOptions="Center"
-                    Style="{StaticResource HeaderFontLight}"
-                    Text="$19"
-                    VerticalOptions="Center" />-->
             </Grid>
 
             <Grid Grid.Row="2">
@@ -146,33 +123,31 @@
                 <controls:InfoPanel
                     Title="Humidity"
                     TitleIcon="{Static dave:FAS.Tint}"
-                    Value="50 - 75%" />
+                    Value="{Binding SelectedProduct.Humidity}" />
 
                 <controls:InfoPanel
                     Title="Light"
                     Grid.Column="1"
                     TitleIcon="{Static dave:FAS.Sun}"
-                    Value="5k - 10k lux" />
+                    Value="{Binding SelectedProduct.Light}" />
 
                 <controls:InfoPanel
                     Title="Temperature"
                     Grid.Column="2"
                     TitleIcon="{Static dave:FAS.ThermometerEmpty}"
-                    Value="18 - 27 ℃" />
-
-
+                    Value="{Binding SelectedProduct.Temperature}" />
             </Grid>
 
             <StackLayout Grid.Row="3">
-                <Label Style="{StaticResource BodyFontLight}" Text="Contained in glass polygonal florarium." />
+                <Label Style="{StaticResource BodyFontLight}" Text="{Binding SelectedProduct.Description}" />
                 <Label>
                     <Label.FormattedText>
                         <FormattedString>
                             <Span Style="{StaticResource BodyFontMedium}" Text="Size: " />
-                            <Span Style="{StaticResource BodyFontLight}" Text="150x150 mm." />
+                            <Span Style="{StaticResource BodyFontLight}" Text="{Binding SelectedProduct.Size}" />
                             <Span Text="  " />
                             <Span Style="{StaticResource BodyFontMedium}" Text="Diameter: " />
-                            <Span Style="{StaticResource BodyFontLight}" Text="190mm" />
+                            <Span Style="{StaticResource BodyFontLight}" Text="{Binding SelectedProduct.Diameter}" />
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
@@ -191,14 +166,6 @@
                     TextColor="White"
                     VerticalOptions="Center" />
             </pancake:PancakeView>
-
-
-
-
         </Grid>
-
-
     </Grid>
-
-
 </ContentView>

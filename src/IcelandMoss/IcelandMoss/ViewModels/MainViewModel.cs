@@ -27,7 +27,13 @@ namespace IcelandMoss.ViewModels
                     Name="Sky Blue",
                     Price = 12,
                     ImageUrl = "blue_moss",
-                    IsFeatured = true
+                    IsFeatured = true,
+                    Description = "Contained in a glass polygonal florarium",
+                    Humidity = "50 - 75%",
+                    Light = "5k - 10k lux",
+                    Temperature = "18 - 27 ℃",
+                    Size = "150x150 mm",
+                    Diameter = "190 mm"
                 },
                 new ProductViewModel()
                 {
@@ -35,7 +41,13 @@ namespace IcelandMoss.ViewModels
                     Name="Yellow Sun",
                     Price = 17,
                     ImageUrl = "yellow_moss",
-                    IsFeatured = true
+                    IsFeatured = true,
+                    Description = "Contained in a yellow glass polygonal florarium",
+                    Humidity = "50 - 60%",
+                    Light = "5k - 15k lux",
+                    Temperature = "18 - 27 ℃",
+                    Size = "150x150 mm",
+                    Diameter = "200 mm"
                 },
 
                 new ProductViewModel()
@@ -44,7 +56,13 @@ namespace IcelandMoss.ViewModels
                     Name="Grey Blue",
                     Price = 19,
                     ImageUrl = "grey_moss",
-                    IsFeatured = true
+                    IsFeatured = true,
+                    Description = "Contained in a glass polygonal florarium",
+                    Humidity = "50 - 75%",
+                    Light = "5k - 10k lux",
+                    Temperature = "18 - 27 ℃",
+                    Size = "150x150 mm",
+                    Diameter = "190 mm"
                 },
 
                 new ProductViewModel()
@@ -53,7 +71,13 @@ namespace IcelandMoss.ViewModels
                     Name="Pink",
                     Price = 21,
                     ImageUrl = "pink_moss",
-                    IsFeatured = false
+                    IsFeatured = false,
+                    Description = "Contained in a glass polygonal florarium",
+                    Humidity = "50 - 75%",
+                    Light = "5k - 10k lux",
+                    Temperature = "18 - 27 ℃",
+                    Size = "150x150 mm",
+                    Diameter = "190 mm"
                 },
 
                  new ProductViewModel()
@@ -62,7 +86,13 @@ namespace IcelandMoss.ViewModels
                     Name="Sky Blue",
                     Price = 12,
                     ImageUrl = "blue_moss",
-                    IsFeatured = false
+                    IsFeatured = false,
+                    Description = "Contained in a glass polygonal florarium",
+                    Humidity = "50 - 75%",
+                    Light = "5k - 10k lux",
+                    Temperature = "18 - 27 ℃",
+                    Size = "150x150 mm",
+                    Diameter = "190 mm"
                 },
 
                 new ProductViewModel()
@@ -71,7 +101,13 @@ namespace IcelandMoss.ViewModels
                     Name="Lavender",
                     Price = 19,
                     ImageUrl = "lavender_moss",
-                    IsFeatured = false
+                    IsFeatured = false,
+                    Description = "Contained in a glass polygonal florarium",
+                    Humidity = "50 - 75%",
+                    Light = "5k - 10k lux",
+                    Temperature = "18 - 27 ℃",
+                    Size = "150x150 mm",
+                    Diameter = "190 mm"
                 },
                 new ProductViewModel()
                 {
@@ -79,7 +115,13 @@ namespace IcelandMoss.ViewModels
                     Name="Green Life",
                     Price = 14,
                     ImageUrl = "green_moss",
-                    IsFeatured = true
+                    IsFeatured = true,
+                    Description = "Contained in a glass polygonal florarium",
+                    Humidity = "50 - 75%",
+                    Light = "5k - 10k lux",
+                    Temperature = "18 - 27 ℃",
+                    Size = "150x150 mm",
+                    Diameter = "190 mm"
                 },
                 new ProductViewModel()
                 {
@@ -87,7 +129,13 @@ namespace IcelandMoss.ViewModels
                     Name="Red",
                     Price = 21,
                     ImageUrl = "red_moss",
-                    IsFeatured = false
+                    IsFeatured = false,
+                    Description = "Contained in a glass polygonal florarium",
+                    Humidity = "50 - 75%",
+                    Light = "5k - 10k lux",
+                    Temperature = "18 - 27 ℃",
+                    Size = "150x150 mm",
+                    Diameter = "190 mm"
                 },
                 new ProductViewModel()
                 {
@@ -95,7 +143,13 @@ namespace IcelandMoss.ViewModels
                     Name="Orange",
                     Price = 14,
                     ImageUrl = "orange_moss",
-                    IsFeatured = false
+                    IsFeatured = false,
+                    Description = "Contained in a glass polygonal florarium",
+                    Humidity = "50 - 75%",
+                    Light = "5k - 10k lux",
+                    Temperature = "18 - 27 ℃",
+                    Size = "150x150 mm",
+                    Diameter = "190 mm"
                 },
                 new ProductViewModel()
                 {
@@ -103,7 +157,13 @@ namespace IcelandMoss.ViewModels
                     Name="Lavender",
                     Price = 19,
                     ImageUrl = "lavender_moss",
-                    IsFeatured = false
+                    IsFeatured = false,
+                    Description = "Contained in a glass polygonal florarium",
+                    Humidity = "50 - 75%",
+                    Light = "5k - 10k lux",
+                    Temperature = "18 - 27 ℃",
+                    Size = "150x150 mm",
+                    Diameter = "190 mm"
                 },
 
             };
