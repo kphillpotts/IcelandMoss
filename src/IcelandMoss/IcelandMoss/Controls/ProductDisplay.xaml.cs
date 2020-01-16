@@ -1,4 +1,5 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -47,6 +48,10 @@ namespace IcelandMoss.Controls
             }
         }
 
+
+        public event EventHandler AddToCartClicked;
+        public event EventHandler ProductClicked;
+
         const int animationSpeed = 500;
 
         internal async Task ExpandToFill(Rectangle bounds)
@@ -83,6 +88,18 @@ namespace IcelandMoss.Controls
             Rectangle expandedBounds = bounds.Inflate(50, 50);
             await this.LayoutTo(expandedBounds, animationSpeed * 2, Easing.SinInOut);
             AbsoluteLayout.SetLayoutBounds(this, expandedBounds);
+        }
+
+        private void TapProductGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            EventHandler handler = ProductClicked;
+            handler?.Invoke(this, new EventArgs());
+        }
+
+        private void TapAddProductGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            EventHandler handler = AddToCartClicked;
+            handler?.Invoke(this, new EventArgs());
         }
     }
 }

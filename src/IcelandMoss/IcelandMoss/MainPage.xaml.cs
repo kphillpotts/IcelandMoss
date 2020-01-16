@@ -26,6 +26,7 @@ namespace IcelandMoss
         public MainPage()
         {
             InitializeComponent();
+            SizeChanged += MainPage_SizeChanged;
         }
 
         Storyboard _storyboard = new Storyboard();
@@ -36,7 +37,7 @@ namespace IcelandMoss
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            SizeChanged += MainPage_SizeChanged;
+            
             ScrollContainer.Scrolled += ScrollContainer_Scrolled;
         }
 
@@ -62,7 +63,7 @@ namespace IcelandMoss
 
 
         }
-
+        
         private void MainPage_SizeChanged(object sender, EventArgs e)
         {
 
@@ -257,6 +258,22 @@ namespace IcelandMoss
         private void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)
         {
             ((View)sender).IsVisible = false;
+        }
+
+        private void ProductDisplay_AddToCartClicked(object sender, EventArgs e)
+        {
+            // selected product
+            ProductDisplay element = sender as ProductDisplay;
+            ProductViewModel item = element.BindingContext as ProductViewModel;
+
+            // add a shopping card item
+            ((MainViewModel)this.BindingContext).ShoppingCart.IncrementOrder(item);
+
+        }
+
+        private void BasketIcon_Clicked(object sender, EventArgs e)
+        {
+            CartPopover.IsVisible = true;
         }
     }
 }

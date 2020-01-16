@@ -6,8 +6,11 @@
     xmlns:controls="clr-namespace:IcelandMoss.Controls"
     xmlns:converters="clr-namespace:IcelandMoss.Converters"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
     xmlns:viewmodels="clr-namespace:IcelandMoss.ViewModels"
+    ios:Page.UseSafeArea="true"
     BackgroundColor="White"
     mc:Ignorable="d">
 
@@ -47,8 +50,32 @@
             x:Name="BasketIcon"
             Padding="10"
             AbsoluteLayout.LayoutBounds="340,20,48,48"
+            Clicked="BasketIcon_Clicked"
             Source="basket_icon"
             Style="{StaticResource ButtonStyle}" />
+
+        <pancake:PancakeView
+            AbsoluteLayout.LayoutBounds="380,20,14,14"
+            BackgroundColor="Black"
+            CornerRadius="7">
+            <pancake:PancakeView.Triggers>
+                <DataTrigger
+                    Binding="{Binding ShoppingCart.ItemCount}"
+                    TargetType="pancake:PancakeView"
+                    Value="0">
+                    <Setter Property="IsVisible" Value="False" />
+                </DataTrigger>
+            </pancake:PancakeView.Triggers>
+            <Label
+                FontSize="10"
+                HorizontalOptions="Center"
+                Text="{Binding ShoppingCart.ItemCount}"
+                TextColor="White"
+                VerticalOptions="Center" />
+        </pancake:PancakeView>
+
+
+
 
         <StackLayout x:Name="Header" AbsoluteLayout.LayoutBounds="20,100,340,100">
             <Label Style="{StaticResource HeaderFontLight}" Text="Choose your new" />
@@ -95,13 +122,15 @@
 
                     <DataTemplate>
                         <controls:ProductDisplay
+                            AddToCartClicked="ProductDisplay_AddToCartClicked"
                             HeightRequest="{Binding IsFeatured, Converter={StaticResource FeaturedHeightConverter}}"
                             ImageOffsetX="{Binding IsFeatured, Converter={StaticResource FeaturedOffsetXConverter}}"
-                            ImageOffsetY="{Binding IsFeatured, Converter={StaticResource FeaturedOffsetYConverter}}">
+                            ImageOffsetY="{Binding IsFeatured, Converter={StaticResource FeaturedOffsetYConverter}}"
+                            ProductClicked="TapGestureRecognizer_Tapped">
 
-                            <controls:ProductDisplay.GestureRecognizers>
+                            <!--<controls:ProductDisplay.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
-                            </controls:ProductDisplay.GestureRecognizers>
+                            </controls:ProductDisplay.GestureRecognizers>-->
                         </controls:ProductDisplay>
                     </DataTemplate>
 
@@ -119,6 +148,12 @@
 
         <controls:ProductDisplayPopover
             x:Name="PagePopover"
+            AbsoluteLayout.LayoutBounds="0,0,1,1"
+            AbsoluteLayout.LayoutFlags="All"
+            IsVisible="False" />
+
+        <controls:ShoppingCartPopover
+            x:Name="CartPopover"
             AbsoluteLayout.LayoutBounds="0,0,1,1"
             AbsoluteLayout.LayoutFlags="All"
             IsVisible="False" />

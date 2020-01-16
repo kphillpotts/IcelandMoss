@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace IcelandMoss.ViewModels
 {
@@ -16,6 +18,11 @@ namespace IcelandMoss.ViewModels
             get { return _selectedProduct; }
             set { SetProperty(ref _selectedProduct, value); }
         }
+
+        public ShoppingCartViewModel ShoppingCart { get; set; }
+
+        public ICommand RemoveItemCommand { private set; get; }
+
 
         public MainViewModel()
         {
@@ -167,6 +174,17 @@ namespace IcelandMoss.ViewModels
                 },
 
             };
+
+            ShoppingCart = new ShoppingCartViewModel();
+            ShoppingCart.Items.Add(new FreightItem() { FreightCharge = 15 });
+
+            RemoveItemCommand = new Command<ShoppingCartItem>(i => RemoveItem(i));
+
+        }
+
+        private void RemoveItem(ShoppingCartItem i)
+        {
+            ShoppingCart.RemoveItem(i);
         }
     }
 }

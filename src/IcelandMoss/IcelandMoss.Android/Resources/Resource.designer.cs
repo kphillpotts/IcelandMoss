@@ -7797,7 +7797,10 @@ namespace IcelandMoss.Droid
 			public const int tooltip_frame_light = 2131165315;
 			
 			// aapt resource value: 0x7F070084
-			public const int yellow_moss = 2131165316;
+			public const int Truck = 2131165316;
+			
+			// aapt resource value: 0x7F070085
+			public const int yellow_moss = 2131165317;
 			
 			static Drawable()
 			{
